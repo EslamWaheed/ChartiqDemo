@@ -58,6 +58,14 @@ class MainViewModel(
                 chartIQ.setDataMethod(DataMethod.PULL, "")
             }
         }
+
+        chartIQ.apply {
+            addChartAvailableListener { chartAvailable ->
+                if (chartAvailable) {
+                    updateSymbol(Symbol("1010-99-S"))
+                }
+            }
+        }
     }
 
     private val symbolDateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
